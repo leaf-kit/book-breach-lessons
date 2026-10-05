@@ -1,0 +1,7 @@
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+
+# 표지 원본(1024x1536, 2MB대). 저장소에는 화면용으로 줄인 images/logo.png 만 넣는다.
+images/logo-original.png

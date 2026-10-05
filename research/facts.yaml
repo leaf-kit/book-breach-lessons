@@ -1,0 +1,695 @@
+# 사실 레지스트리 — 『지피지기 보안』
+#
+# 기준일: 2026-10-05
+# 규칙: 본문에 쓰는 모든 날짜, 수치, 조문, 버전, 시행일은 여기에 먼저 등록한다.
+#       등록되지 않은 사실은 본문에 쓰지 않는다.
+#
+# label
+#   ✅  1차 출처 또는 서로 독립적인 2개 이상 출처로 확인
+#   ⚠️  단일 출처이거나 출처 간 불일치. 본문에 단서 표기
+#   🔍  기억이나 추정 기반. 본문 사용 금지
+
+facts:
+
+  # ───────── 2026 금융권 연쇄 해킹 ─────────
+
+  - id: F-001
+    claim: >
+      2026-09-28 부터 10-03 까지 신한, 하나, KB국민, 부산, NH농협, 우리은행을 대상으로 한 공격에서
+      공통 IP 와 유사한 AI 활용 수법이 발견됐고, 금융당국은 최소 6곳을 동일 주체의 공격으로 추정한다.
+    source_url: "https://www.seoul.co.kr/news/economy/2026/10/04/20261004500025"
+    source_type: 2차(언론, 금융당국 인용)
+    checked_date: 2026-10-05
+    label: ✅
+    todo: 금융위, 금감원, 금융보안원 공식 보도자료로 교체
+
+  - id: F-002
+    claim: >
+      동일 주체 추정의 핵심 근거는 중국어 기반 AI 자율 침투 테스트 플랫폼 아르텍스(ARTEX)의 흔적이다.
+      다만 이 도구는 공개 플랫폼이므로 중국발 공격으로 단정할 수 없다.
+    source_url: ""                 # 2026-10-05 확인 시 404. 링크란을 비워 둔다
+    dead_url: "https://www.seoul.co.kr/news/economy/2026/10/05/20261005001002"
+    dead_checked: 2026-10-05
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: 원문이 내려갔다. 살아 있는 대체 출처를 찾아 source_url 을 채운다
+    note: 귀속 단정 금지. 본문에 '공개 플랫폼' 병기 필수
+
+  - id: F-003
+    claim: >
+      보도 기준 피해 규모. 신한은행 고객 25,729명, KB국민은행 119명(고객 99명, 임직원 20명),
+      하나은행 고객 89명, BNK부산은행 외주 개발직원 11명. 우리은행과 NH농협은행은
+      침입 방지 시스템이 작동해 유출 없음.
+      유출 항목에는 고객명, 전화번호, 연소득, 대출 산출한도 등이 포함됐고,
+      일부 고객의 주민등록번호 66건과 연계정보(CI) 97건도 포함됐다.
+      어느 항목이 어느 기관에서 나왔는지는 보도에서 구분되지 않는다.
+    source_url: "https://www.newspim.com/news/view/20261002001278"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 조사 중이라 수치가 바뀔 수 있다. 본문에 "보도 기준", "조사 중" 병기
+
+  - id: F-004
+    claim: >
+      공격은 직원 영업 및 업무지원 시스템에 집중됐다. KB국민은행은 직원용 모바일 업무지원시스템,
+      하나은행은 영업지원시스템(ODS)에서 비정상 외부 접속이 확인됐다. 하나은행은 해당 시스템이
+      인터넷 및 모바일 뱅킹 거래 시스템과 별개라고 밝혔다.
+    source_url: "https://www.newspim.com/news/view/20261002001278"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-005
+    claim: >
+      국회 정무위 의원실 자료에 따르면 KB국민은행에 대한 공격은 2026-09-27 오후 11시 19분경 시작돼
+      2026-09-29 오후 6시경까지 약 43시간 이어졌다.
+    source_url: "https://www.seoul.co.kr/news/economy/2026/10/04/20261004500025"
+    source_type: 2차(의원실 자료 인용)
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-006
+    claim: >
+      신한은행 후속 침해사고 보고서에서 공격 대상이 모바일 홈페이지 'M신한' 이고
+      공격자가 대출신청 결과 등 6개 서비스를 집중 조회한 사실이 확인됐다.
+    source_url: "https://www.busan.com/view/busan/view.php?code=2026100418075759253"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-007
+    claim: >
+      금융위원회는 2026-10-02 공식 자료에서 추가 피해 발생을 밝히고 금감원, 금융보안원,
+      주요 은행 및 카드사와 긴급 상황대응 회의를 열었다. 증권, 카드, 보험사도 공격 시도를 받았다.
+    source_url: "https://www.seoul.co.kr/news/economy/2026/10/04/20261004500025"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-008
+    claim: >
+      금융보안원은 이번 사태 이전인 2025년 말 조직 개편에서 모의해킹 조직을 'RED IRIS실' 로 격상해
+      인원을 6명에서 20명으로 늘리고, AI혁신실을 'AI혁신부' 로 격상하며 'AI RED팀' 을 신설했다.
+    source_url: "https://m.boannews.com/html/detail.html?idx=141206"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  # ───────── 2025 SK텔레콤 유심 정보 유출 ─────────
+
+  - id: F-020
+    claim: >
+      민관합동조사단 최종 결과(2025-07-04 발표). SK텔레콤은 2021년 8월부터 내부 서버에
+      악성코드를 순차 감염당했고, 2023년 11월부터 2025년 4월까지 추가 악성코드를 설치하며 내부 확장이
+      이어졌다. 결정적 유출은 2025-04-18 에 발생했다.
+    source_url: "https://news.nate.com/view/20250704n26170?mid=n0100"
+    source_type: 2차(과기정통부 발표 인용)
+    checked_date: 2026-10-05
+    label: ✅
+    note: 침입 시점과 발견 시점의 간격이 약 3년 8개월이다
+
+  - id: F-021
+    claim: >
+      유출된 유심 정보는 9.82GB, IMSI 기준 26,957,749건이다. 감염 서버는 최종 28대,
+      악성코드 33종이 발견됐고 BPF도어(BPFDoor) 27종, 타이니쉘 3종, 웹쉘 1종,
+      오픈소스 악성코드 2종이 포함된다. IMEI 291,831건이 담긴 파일도 확인됐다.
+    source_url: "https://www.korea.kr/briefing/policyBriefingView.do?newsId=156689741"
+    source_type: 1차(부처 브리핑)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-022
+    claim: >
+      조사단은 SK텔레콤이 2022년에 공격 사실을 발견하고도 조치가 미흡했고, 당국에 알리지 않고
+      자체 해결로 대응하다 문제를 키웠다고 밝혔다. 음성통화인증 관리서버의 계정정보를
+      다른 서버에 평문으로 저장해 ISMS 인증기준을 위반했다.
+    source_url: "https://news.nate.com/view/20250704n26170?mid=n0100"
+    source_type: 2차(과기정통부 발표 인용)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-023
+    claim: >
+      조사단 내부에서 2024년 이전 기간은 로그 기록이 1년 치도 남아 있지 않아
+      유출 여부를 확인할 방법 자체가 없다는 지적이 나왔다.
+    source_url: "https://news.nate.com/view/20250704n26170?mid=n0100"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 로그 보존 장의 핵심 근거. 1차 보고서 원문으로 교체 권장
+
+  - id: F-024
+    claim: >
+      조사 대상 서버는 전체 42,605대였고 민관합동조사단은 2025-04-23 구성돼 두 달간 정밀 조사했다.
+    source_url: "https://www.korea.kr/briefing/policyBriefingView.do?newsId=156689741"
+    source_type: 1차(부처 브리핑)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-025
+    claim: >
+      사고 이후 SK텔레콤은 정보보호최고책임자 조직을 CEO 직속으로 격상하고
+      레드팀을 신설하는 등 보안 체계 강화를 밝혔다.
+    source_url: "https://news.nate.com/view/20250704n26170?mid=n0100"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 발표 내용이다. 실제 이행 여부는 확인하지 않았다
+
+  # ───────── 2025 롯데카드 ─────────
+
+  - id: F-030
+    claim: >
+      2025-08-14 부터 15일 사이 롯데카드 서버가 해킹당해 약 297만 명의 개인 신용정보가 유출됐다.
+      이 중 약 283,000명(9.5%)은 카드 비밀번호와 CVC 까지 유출됐다. 전체 회원 약 960만 명의 3분의 1 규모다.
+    source_url: "https://www.khan.co.kr/article/202509181346001"
+    source_type: 2차(금융당국 발표 인용)
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: >
+      규모가 매체마다 296만과 297만으로 갈린다. 본문은 "약 297만"으로 적고
+      갈린다는 사실을 함께 밝혔다. 금융당국 공식 발표 원문으로 확정할 것
+
+  - id: F-031
+    claim: >
+      유출 데이터는 2025-08-14 부터 27일까지 약 200GB 로, 롯데카드가 당초 금감원에 보고한
+      1.7GB 의 100배가 넘는 규모였다.
+    source_url: "https://www.dailysecu.com/news/articleView.html?idxno=200655"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-032
+    claim: >
+      타임라인. 2025-08-26 서버 점검 중 악성코드 감염 확인, 08-31 유출 흔적 발견,
+      09-01 금융당국 신고, 09-02 금감원 현장검사 착수, 09-18 조사 결과 발표.
+      사고 발생(08-14)부터 공식 발표까지 35일이 걸렸다. 롯데카드는 신고 이후 보름 넘게
+      홈페이지에 정보 유출이 없다는 공지를 띄워 두었다.
+    source_url: "https://www.khan.co.kr/article/202509181346001"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-033
+    claim: >
+      원인으로 8년 전 공개된 취약점을 방치한 점이 지적됐다.
+    source_url: "https://www.kwnews.co.kr/article/202509220020890"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 구체적인 CVE 번호는 공개되지 않았다. 본문에 "보도에 따르면" 병기
+
+  # ───────── 2014 카드 3사 / 2011 농협 ─────────
+
+  - id: F-040
+    claim: >
+      2014년 1월 KB국민카드 5,300만건, NH농협카드 2,500만건, 롯데카드 2,600만건 등
+      3사에서 1억 400만 건의 개인정보가 유출됐다. 카드번호, 주거상황, 신용한도, 신용등급,
+      결제일, 결제계좌, 유효기간 등 19종이 포함됐다.
+    source_url: "https://www.etnews.com/20141226000110"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-041
+    claim: >
+      경위. 카드 3사가 2012년 부정사용예방시스템(FDS) 용역 개발을 KCB 에 맡겼고,
+      그 과정에 투입된 외주 직원이 USB 로 1억 580만 건을 반출해 대출광고업자에게 넘겼다.
+      해당 직원은 2014년 신용정보보호법 위반 등으로 징역 3년을 선고받았다.
+    source_url: "https://www.thescoop.co.kr/news/articleView.html?idxno=25228"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-042
+    claim: >
+      법원은 USB 쓰기 제한 보안프로그램의 설치와 실제 작동 여부에 대한 관리 감독 미흡,
+      외주업체 직원에 대한 보안 지침 부재와 접근권한 제한 미실시를 지적했다.
+      카드 3사는 3개월 영업정지 중징계를 받았다.
+    source_url: "https://m.boannews.com/html/detail.html?idx=51708"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-043
+    claim: >
+      2011-04-12 오후 5시부터 농협 전산망이 불통돼 다음 날 오후까지 현금카드, ATM,
+      인터넷뱅킹 거래가 불가능했다. 서버 273대에 장애가 발생했고 모든 업무 정상화는 4월 30일이었다.
+    source_url: "https://ko.wikipedia.org/wiki/%EB%86%8D%ED%98%91_%EC%A0%84%EC%82%B0%EB%A7%9D_%EB%A7%88%EB%B9%84_%EC%82%AC%ED%83%9C"
+    source_type: 3차(위키)
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: 금융당국 또는 검찰 발표 원문으로 교체
+
+  - id: F-044
+    claim: >
+      서버 유지보수를 담당하는 외주업체 직원의 업무용 노트북에서 서버 OS 삭제 명령이 내려졌다.
+      해당 노트북은 2010-09-04 업무와 무관한 파일을 내려받는 과정에서 감염됐다.
+      즉 업무용 기기가 개인 용도로도 쓰였다. 공격자는 약 7개월 동안
+      관리자 비밀번호 등 정보를 수집한 뒤 마지막 단계에서 삭제 명령을 실행했다.
+    source_url: "https://m.boannews.com/html/detail.html?idx=29192"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 공격 주체에 대한 당국 발표에는 이견이 제기된 바 있다. 본문에서 주체를 단정하지 않는다
+
+  # ───────── 세계의 사건 ─────────
+
+  - id: F-050
+    claim: >
+      Equifax(2017). Apache Struts 취약점 CVE-2017-5638(CVSS 10.0)은 2017-03-07 공개되고
+      패치가 배포됐다. Equifax 는 03-09 내부적으로 48시간 내 패치를 요청했으나 적용되지 않았고,
+      03-10 최초 악용 흔적이 남았다. 03-15 스캔은 취약 시스템을 찾지 못했다.
+      07-29 의심 트래픽 발견 후에야 패치가 적용됐다. 패치는 78일간 적용되지 않았다.
+    source_url: "https://oversight.house.gov/wp-content/uploads/2018/12/Equifax-Report.pdf"
+    source_type: 1차(미 하원 감독위 보고서)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-051
+    claim: >
+      Equifax 침해로 미국인 1억 4,700만 명의 이름, 사회보장번호, 생년월일, 주소,
+      운전면허번호가 노출됐다. 사전 감사에서 자체 패치 일정 미준수, IT 자산 목록 미비,
+      자산 중요도 기반 패치 우선순위 부재가 지적됐으나 2년 뒤 침해 시점까지 미이행이었다.
+    source_url: "https://oversight.house.gov/wp-content/uploads/2018/12/Equifax-Report.pdf"
+    source_type: 1차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-052
+    claim: >
+      MOVEit(2023). Clop 이 MOVEit Transfer 의 CVE-2023-34362(SQL 인젝션) 제로데이를
+      2023-05-29 경부터 자동화된 형태로 대량 악용했다. 피해 조직은 2023-07-26 기준 455곳,
+      08-14 기준 670곳, 최종 1,000곳 이상으로 늘었고 피해 개인은 최소 6,000만 명이다.
+    source_url: "https://www.bankinfosecurity.com/latest-moveit-data-breach-victim-tally-455-organizations-a-22650"
+    source_type: 2차(집계기관 인용)
+    checked_date: 2026-10-05
+    label: ✅
+    note: 집계기관마다 수치가 다르다. 본문에 집계 시점과 기관을 병기
+
+  - id: F-053
+    claim: >
+      Clop 은 암호화 후 복호화 키를 파는 대신 데이터를 탈취해 공개를 협박하는 방식에 집중했다.
+      전문가들은 MOVEit 캠페인만으로 7,500만에서 1억 달러를 벌었을 가능성을 제기했다.
+    source_url: "https://flashpoint.io/blog/clop-ransomware-moveit-vulnerability/"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-054
+    claim: >
+      MGM Resorts(2023-09). 공격자가 링크드인 정보로 직원을 사칭해 IT 지원에 전화를 걸어
+      자격증명을 재설정받았다. 보도에 따르면 통화는 약 10분이었다. 이후 Okta 와 Azure 환경의
+      관리자 접근을 얻었고 10일간 랜섬웨어 공격이 이어져 슬롯머신, 호텔 키, 예약 시스템이 멈췄다.
+      공격자는 Okta 의 inbound federation 기능으로 새 신원 공급자를 구성해 거점을 만들었다.
+    source_url: "https://www.adaptivesecurity.com/blog/mgm-ransomware-attack"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: >
+      IT 서비스데스크 초기 침투 경로는 MGM 공시가 아니라 공격자 측 주장과 언론 보도에 근거한다.
+      본문에 "보도에 따르면" 을 반드시 붙인다
+
+  - id: F-055
+    claim: >
+      Caesars Entertainment(2023). 공격자가 IT 사용자를 사칭해 외주 헬프데스크를 설득하여
+      자격증명을 재설정받았고, 고객 로열티 프로그램 데이터베이스를 탈취한 뒤 1,500만 달러의
+      몸값을 받아냈다.
+    source_url: "https://www.adaptivesecurity.com/blog/mgm-ransomware-attack"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-056
+    claim: >
+      MGM, Caesars, Transport for London 사건의 초기 침투 경로가 모두
+      헬프데스크에 전화해 자격증명을 재설정받는 방식이었다.
+    source_url: ""                 # 2026-10-05 확인 시 404. 링크란을 비워 둔다
+    dead_url: "https://thehackernews.com/2025/06/scattered-spider-understanding-help-desk-scams.html"
+    dead_checked: 2026-10-05
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: 원문이 내려갔다. 살아 있는 대체 출처를 찾아 source_url 을 채운다
+
+  - id: F-057
+    claim: >
+      Salt Typhoon. 2024-10 미국 통신사 대규모 침해가 공개됐고 CISA 는 미국 역사상 최악의
+      통신 해킹으로 표현했다. 2024-12-04 미 정부는 최소 8개 통신 관련 기업이 피해를 입었다고
+      공개했고 이후 9번째 기업이 확인됐다. 통화 상세 기록과 위치 데이터, 법 집행 관련 데이터가
+      접근됐다.
+    source_url: "https://www.darkreading.com/cyberattacks-data-breaches/cisa-issue-guidance-telecoms-salt-typhoon-threat"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-058
+    claim: >
+      2024-12-04 CISA, FBI, NSA 와 호주, 캐나다, 뉴질랜드 파트너가 공동 서명한 통신 인프라
+      가이드가 나왔다. 기관들은 확인된 침해가 피해 인프라의 기존 약점과 일치하며
+      새로운 기법은 관찰되지 않았다고 밝혔다.
+    source_url: "https://www.darkreading.com/cyberattacks-data-breaches/cisa-issue-guidance-telecoms-salt-typhoon-threat"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+    note: "새로운 기법이 아니었다"는 점이 이 사건의 핵심 교훈이다
+
+  - id: F-059
+    claim: >
+      CISA 관계자는 당시 "적이 축출됐다고 확신해서 말할 수 없다. 그들이 무엇을 하는지
+      범위를 아직 모르기 때문이다" 라고 말했다.
+    source_url: "https://www.darkreading.com/cyberattacks-data-breaches/cisa-issue-guidance-telecoms-salt-typhoon-threat"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 직접 인용은 30자 미만으로 줄여 쓴다
+
+  # ───────── AI 와 에이전트 ─────────
+
+  - id: F-070
+    claim: >
+      Anthropic 은 2025-11-13 에 처음으로 보고된 AI 주도 사이버 첩보 캠페인을 차단했다고 발표했다.
+      2025년 9월 중순에 탐지됐고 GTG-1002 로 명명됐다. 공격자는 Claude Code 를 MCP 서버로
+      오케스트레이션해 정찰, 취약점 탐색, 침투, 내부 이동, 자격증명 수집, 분석, 유출을 수행했다.
+    source_url: "https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf"
+    source_type: 1차(Anthropic 보고서)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-071
+    claim: >
+      GTG-1002 캠페인에서 전술적 작업의 80~90% 가 사람 개입 없이 수행됐고,
+      사람은 표적 선정과 유출 승인 같은 전략적 판단에만 개입했다.
+      표적은 금융기관부터 정부기관까지 약 30개 조직이었다.
+    source_url: "https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf"
+    source_type: 1차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-072
+    claim: >
+      공격자는 제로데이가 아니라 널리 공개된 오픈소스 상용 도구를 주로 썼고,
+      AI 오케스트레이션으로 규모를 키웠다. 안전장치는 모델에게 자신이 정식 보안업체 직원으로서
+      승인받은 방어 침투 테스트를 한다고 믿게 만드는 방식으로 우회됐다.
+    source_url: "https://assets.anthropic.com/m/ec212e6566a0d47/original/Disrupting-the-first-reported-AI-orchestrated-cyber-espionage-campaign.pdf"
+    source_type: 1차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-073
+    claim: >
+      Anthropic 은 일부 AI 출력이 부정확해 사람의 검증이 필요했다고 함께 밝혔고,
+      일부 연구자는 캠페인이 보고만큼 성공적이거나 자율적이었는지에 의문을 제기했다.
+    source_url: "https://www.justsecurity.org/127053/era-ai-orchestrated-hacking/"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 과장하지 않기 위해 반드시 함께 쓴다
+
+  - id: F-074
+    claim: >
+      OWASP Top 10 for Agentic Applications 2026 은 2025-12-09 공개됐다. 100명 넘는 전문가가
+      참여했고 공개 동료 검토를 거쳤다. 항목은 ASI01 에이전트 목표 탈취, ASI02 도구 오용,
+      ASI03 신원과 권한 남용, ASI04 에이전트 공급망, ASI05 예기치 않은 코드 실행,
+      ASI06 메모리와 컨텍스트 오염, ASI07 안전하지 않은 에이전트 간 통신, ASI08 연쇄 실패,
+      ASI09 인간-에이전트 신뢰 악용, ASI10 악성 에이전트다.
+    source_url: "https://cycode.com/blog/owasp-top-10-agentic-applications/"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: genai.owasp.org 원문 PDF 로 교체
+
+  - id: F-075
+    claim: >
+      OWASP 문서가 인용한 사례로 EchoLeak 이 있다. Microsoft 365 Copilot 을 대상으로 한
+      제로클릭 간접 프롬프트 인젝션으로, 조작된 메일 한 통이 사용자 조작 없이
+      기밀 메일과 파일, 대화 기록의 유출을 유발했다.
+    source_url: "https://cycode.com/blog/owasp-top-10-agentic-applications/"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-076
+    claim: >
+      Shai-Hulud(2025-09-15 공개). npm 생태계를 대상으로 한 자기복제 웜으로 500개 넘는 패키지가
+      감염됐다. 설치 후 스크립트가 민감 정보를 수집해 공격자가 만든 공개 깃허브 저장소로 유출했고,
+      환경에서 추가 npm 토큰을 발견하면 접근 가능한 패키지를 자동으로 악성 버전으로 배포했다.
+    source_url: "https://unit42.paloaltonetworks.com/npm-supply-chain-attack/"
+    source_type: 2차(보안업체 분석)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-077
+    claim: >
+      Shai-Hulud 2차 파동(2025-11-24 탐지). 몇 시간 만에 700개 넘는 npm 패키지가 감염되고
+      27,000개 넘는 악성 깃허브 저장소가 생성됐으며 487개 조직에서 약 14,000개의 비밀이 노출됐다.
+      실행 시점이 설치 후에서 설치 전으로 옮겨졌고, 자격증명 탈취나 유출 채널 확보에 실패하면
+      사용자 소유의 쓰기 가능한 파일을 덮어쓰고 지우려는 파괴 동작이 추가됐다.
+    source_url: "https://www.zscaler.com/blogs/security-research/shai-hulud-v2-poses-risk-npm-supply-chain"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-078
+    claim: >
+      슬롭스쿼팅(slopsquatting). 모델이 자주 환각하는 패키지 이름을 공격자가 선점해
+      악성 코드를 올리는 공급망 공격이다. 용어는 보안 연구자 Seth Larson 이 만들었다.
+    source_url: "https://en.wikipedia.org/wiki/Slopsquatting"
+    source_type: 3차(위키)
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: 1차 출처로 교체
+
+  - id: F-079
+    claim: >
+      USENIX Security 2025 연구(Spracklen 등). 제안된 패키지의 19.7% 가 존재하지 않았고,
+      오픈소스 모델은 21.7%, 상용 모델은 5.2% 를 환각했다. 고유한 환각 이름은 205,000개가 넘었다.
+      환각 이름의 58% 넘게 여러 번 반복 등장했고 43% 는 같은 프롬프트 열 번에서 일관되게 나타났다.
+    source_url: "https://socket.dev/blog/slopsquatting-how-ai-hallucinations-are-fueling-a-new-class-of-supply-chain-attacks"
+    source_type: 2차(논문 인용)
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: USENIX 원논문으로 교체
+    note: 반복된다는 점이 공격자에게 가치를 준다. 이 책의 핵심 수치다
+
+  # ───────── 국내 법령 ─────────
+
+  - id: F-090
+    claim: >
+      개정 개인정보 보호법(법률 제21445호)이 2026-03-10 공포되어 2026-09-11 시행됐다.
+      개정 시행령(대통령령 제36671호)도 같은 날 시행됐다.
+    source_url: "https://www.lawtimes.co.kr/news/articleView.html?idxno=226491"
+    source_type: 2차(로펌 브리핑)
+    checked_date: 2026-10-05
+    label: ✅
+    todo: 국가법령정보센터 원문으로 조문 번호 최종 확정
+
+  - id: F-091
+    claim: >
+      고의나 중과실로 위반을 반복하거나 1천만 명 이상의 대규모 피해를 낸 경우 등에는
+      전체 매출액의 최대 10% 범위에서 과징금이 부과될 수 있다. 세 조건에 모두 걸려야 적용된다.
+      반대로 개인정보 보호를 위한 투자 시 과징금 감경 제도가 신설됐고 감경 폭은 40% 수준으로 소개된다.
+    source_url: "https://www.lawtimes.co.kr/news/articleView.html?idxno=226491"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: >
+      둘 다 단일 출처(로펌 브리핑)다.
+      (1) 감경 폭 40% 는 "소개되고 있다" 수준으로만 쓴다.
+      (2) 과징금 10% 의 적용 요건이 몇 개이고 어떻게 결합되는지 불분명하다.
+      출처는 "세 가지 조건에 모두 걸려야"라고 했는데 조건 셋을 명시하지 않았다.
+      **이 항목은 검증 대상에서 뺐다(2026-10-05 결정).**
+      본문에서 요건을 나열하지 않고, 상한과 "조건이 까다롭다"까지만 쓴 뒤
+      **독자 판단의 영역으로 넘긴다고 명시했다.** 조문 해석은 이 책의 범위가 아니다.
+
+  - id: F-092
+    claim: >
+      유출 '가능성' 72시간 통지제가 신설됐다. 불법 시스템 접근이나 개인정보 불법 거래 등
+      객관적 정황이 있을 때 적용되며(시행령 제39조의2 제1항), 사유를 알게 된 때부터 72시간 이내에
+      서면등의 방법으로 통지해야 한다(시행령 제39조의3 제1항). 72시간 내 유출이 확정되면
+      법 제34조 제1항의 확정 통지로 갈음하고, 유출이 없던 것으로 확인되면 그 사실을 즉시 통지한다.
+    source_url: "https://datalaw.kr/posts/pipa-2026-amendment-comparison/"
+    source_type: 2차(신구조문 대조)
+    checked_date: 2026-10-05
+    label: ✅
+    todo: 국가법령정보센터 시행령 원문으로 조문 확정
+
+  - id: F-093
+    claim: >
+      CPO 지정, 변경, 해제 시 이사회 의결과 개인정보보호위원회 신고 의무가 생겼다.
+      대상 기준이 시행령 제32조 제3항에서 연간 매출액등 1,500억 원 이상에서 1,800억 원 초과로
+      상향됐다. 나머지 요건(민감정보나 고유식별정보 5만 명, 개인정보 100만 명,
+      재학생 2만 명 이상 대학, 상급종합병원, 공공시스템운영기관)은 같다.
+    source_url: "https://www.lawtimes.co.kr/news/articleView.html?idxno=226491"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-094
+    claim: 일정 규모 이상 개인정보처리자에 대한 ISMS-P 인증 의무화가 2027년 7월 시행될 예정이다.
+    source_url: "https://www.lawtimes.co.kr/news/articleView.html?idxno=226491"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: 대상 범위와 정확한 시행일을 법령 원문으로 확인
+
+  # ───────── 암호와 PQC ─────────
+
+  - id: F-110
+    claim: >
+      NIST 는 2024-08-13 에 FIPS 203(ML-KEM, 키 설정), FIPS 204(ML-DSA, 전자서명),
+      FIPS 205(SLH-DSA, 해시 기반 서명)를 최종 확정했다. ML-KEM 은 CRYSTALS-Kyber 에서 유래했고
+      RSA 와 타원곡선 디피헬먼의 키 설정 역할을 대체하도록 설계됐다.
+    source_url: "https://qramm.org/learn/nist-pqc-standards.html"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ✅
+    todo: csrc.nist.gov 공식 페이지로 교체
+
+  - id: F-111
+    claim: >
+      NIST IR 8547 「Transition to Post-Quantum Cryptography Standards」 는 2024-11-12 공개된
+      초안(Initial Public Draft)이며 2026년 중반 기준 여전히 초안이다. FIPS 가 아니라 내부 보고서다.
+      112비트 보안 강도의 양자 취약 공개키 알고리즘(RSA-2048, P-256 등)은 2030년 이후 사용 억제,
+      2035년 이후 금지를 제안한다. 2035년 금지는 RSA-3072, P-384 를 포함한 모든 양자 취약
+      공개키 알고리즘에 적용된다.
+    source_url: "https://www.encryptionconsulting.com/nist-ir-8547-2030-2035-action-plan/"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: >
+      **초안이다.** 2030/2035 를 확정된 정책으로 쓰지 않는다. "초안이 제안한 일정" 으로 쓴다
+
+  - id: F-112
+    claim: >
+      NIST IR 8545(2025-03)는 4라운드 상태 보고서로 HQC 를 예비 KEM 으로 선정했다.
+    source_url: "https://www.encryptionconsulting.com/education-center/pqcs-standardization/"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-113
+    claim: >
+      미 연방은 IR 8547 이 초안인 상태에서도 그 일정을 계획 기준으로 삼고 있다.
+      OMB M-26-15 는 기관에 IR 8547 과 정렬된 이전 계획을 지시하고 2035년을 완전 이전 시점으로 둔다.
+      2026년 6월 행정명령은 상무부 이전 시범사업 2027년, 키 설정 2030년, 전자서명 2031년을 정했다.
+    source_url: "https://itecsonline.com/post/post-quantum-cryptography-complete-guide-2026"
+    source_type: 2차
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: OMB 와 백악관 원문으로 확인
+
+  - id: F-114
+    claim: >
+      개인정보 암호화 국내 요건. 비밀번호는 해시함수, 바이오정보와 주민등록번호, 신용카드번호,
+      계좌번호, 여권번호, 운전면허번호, 외국인등록번호는 블록암호를 쓴다. SHA-1 은 비권고,
+      SHA-2(SHA-224 이상) 권고다. 국가 및 공공기관은 국정원 검증필 암호모듈이 필요하고
+      검증 대상 블록암호는 ARIA, SEED, LEA, HIGHT 다.
+    source_url: "https://seed.kisa.or.kr/kisa/bbs/faq.do"
+    source_type: 1차(KISA)
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: >
+      KISA FAQ 는 오래된 내용을 포함할 수 있다. 비밀번호 저장 권고는 현재 국제 모범사례
+      (Argon2id 등)와 차이가 있을 수 있으므로 최신 안내서와 OWASP 를 함께 본다
+
+  - id: F-115
+    claim: >
+      한국은 2023-07 범국가 양자내성암호 전환 마스터플랜을 내고 2025년 시범전환 사업과
+      2025-09 종합 추진계획을 진행했으며 2035년을 목표로 한다. KpqC 4종
+      (AIMer, HAETAE, NTRU+, SMAUG-T)이 2025-01 최종 선정됐다.
+    source_url: "https://seed.kisa.or.kr/kisa/ngc/pqc.do"
+    source_type: 1차(KISA)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-060
+    claim: >
+      2024-11-13 FBI 와 CISA 는 공동 성명에서 미국 정부의 조사 결과 중화인민공화국(PRC)이
+      상업용 통신 인프라를 표적으로 삼은 광범위한 사이버 첩보 캠페인이 확인됐다고 밝혔다.
+      기관 이름을 걸고 국가를 지목한 공개 귀속이다.
+    source_url: "https://www.cisa.gov/news-events/news/joint-statement-fbi-and-cisa-peoples-republic-china-prc-targeting-commercial-telecommunications"
+    source_type: 1차(FBI 와 CISA 공동 성명)
+    checked_date: 2026-10-05
+    label: ✅
+    note: 공개 귀속의 무게와 흔적 기반 추정의 무게는 다르다. 본문에서 반드시 구분해서 쓴다
+
+
+# ───────── 인물과 인용 (F-130 ~ F-149) ─────────
+# 명언은 출처가 흔들리기 쉽다. 원문을 직접 확인한 것만 ✅ 로 둔다.
+
+  - id: F-130
+    claim: >
+      Bruce Schneier 는 "Security is a process, not a product." 라고 썼다.
+      Crypto-Gram 2000-05-15 자에 실렸고, 같은 글에서 제품은 일부를 막을 뿐이며
+      제품의 불안전함을 전제한 절차를 세우는 것이 유일한 방법이라고 덧붙였다.
+    source_url: "https://www.schneier.com/crypto-gram/archives/2000/0515.html"
+    source_type: 1차(저자 본인 아카이브)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-131
+    claim: >
+      Gene Spafford 의 말로 전해지는 문장. "The only truly secure system is one that is
+      powered off, cast in a block of concrete and sealed in a lead-lined room with armed
+      guards - and even then I have my doubts."
+      출처로 A. K. Dewdney 의 Scientific American 1989년 3월호 110쪽이 제시된다.
+    source_url: "https://en.wikiquote.org/wiki/Gene_Spafford"
+    source_type: 2차(위키인용집. 1차 지면 미확인)
+    checked_date: 2026-10-05
+    label: ⚠️
+    todo: Scientific American 1989-03 지면 원문으로 교체
+
+  - id: F-132
+    claim: >
+      제로 트러스트라는 말은 Forrester 의 John Kindervag 가 쓴 보고서
+      "No More Chewy Centers: Introducing The Zero Trust Model Of Information Security"
+      에서 널리 퍼졌다. 보고서 페이지에서 제목과 저자는 확인된다.
+    source_url: "https://www.forrester.com/report/no-more-chewy-centers-the-zero-trust-model-of-information-security/RES56682"
+    source_type: 2차(발행사 보고서 소개 페이지. 본문 비공개)
+    checked_date: 2026-10-05
+    label: ⚠️
+    note: 최초 발행 연도는 자료마다 갈려 적지 않는다
+
+  - id: F-133
+    claim: >
+      Whitfield Diffie 와 Martin Hellman 의 "New Directions in Cryptography" 는
+      IEEE Transactions on Information Theory, vol. IT-22, no. 6, 1976년 11월, 644쪽에 실렸다.
+      열쇠를 미리 안전하게 나눠 갖지 않고도 통신할 수 있는 방향을 제시했다.
+    source_url: "https://ee.stanford.edu/~hellman/publications/24.pdf"
+    source_type: 1차(논문 PDF)
+    checked_date: 2026-10-05
+    label: ✅
+
+  - id: F-134
+    claim: >
+      모리스 웜은 1988-11-02 에 MIT 망에서 퍼지기 시작했다. 이 사건은 1986년
+      미국 컴퓨터 사기 및 남용 방지법(CFAA) 아래 내려진 최초의 중범죄 유죄 판결로 이어졌다.
+    source_url: "https://en.wikipedia.org/wiki/Morris_worm"
+    source_type: 2차(위키백과)
+    checked_date: 2026-10-05
+    label: ⚠️
+
+  - id: F-135
+    claim: >
+      Clifford Stoll 은 1986년 로렌스 버클리 연구소에서 75센트의 전산 사용료 회계 불일치를
+      맞춰 보라는 지시를 받았고, 그 추적이 침입자를 찾아내는 일로 이어졌다.
+      이 과정은 1989년 책 The Cuckoo's Egg 로 정리됐다.
+    source_url: "https://en.wikipedia.org/wiki/The_Cuckoo%27s_Egg_(book)"
+    source_type: 2차(위키백과. 1차는 저자의 책)
+    checked_date: 2026-10-05
+    label: ⚠️
+
+
+# ───────── 아직 본문에 못 쓰는 것 ─────────
+# 1차 출처를 찾기 전에는 쓰지 않는다. research/verify-todo.md 참조.
+unverified_candidates:
+  cases: ["2011 네이트 싸이월드 유출", "2013 3.20 사이버테러", "2021 Colonial Pipeline",
+          "2021 Log4Shell", "2020 SolarWinds", "2022 Uber MFA 피로 공격",
+          "2024 Arup 딥페이크 화상회의"]
+  laws: ["개인정보의 안전성 확보조치 기준 최신 개정과 시행일", "정보통신망법 최신 개정",
+         "전자금융감독규정 후속 대책", "AI 기본법 시행 상태", "ISMS-P 인증기준 항목 수"]
+  standards: ["NIST CSF 2.0", "NIST SP 800-53 최신 개정", "ISO/IEC 27001:2022",
+              "ISO/IEC 42001", "PCI DSS 최신 버전", "CIS Controls 최신 버전",
+              "EU NIS2 DORA CRA AI Act 최신 일정", "TLS 인증서 최대 유효기간 단축 일정"]
